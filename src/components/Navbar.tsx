@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sprout, Calendar, Truck, Clock, UserCheck, ShieldCheck } from 'lucide-react';
+import { Calendar, Truck, Clock, UserCheck, ShieldCheck } from 'lucide-react';
 
 interface NavbarProps {
   activeTab: 'crops' | 'booking' | 'delivery' | 'activity' | 'admin';
@@ -24,20 +24,24 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => setActiveTab('crops')} 
             className="flex items-center gap-3 cursor-pointer group"
           >
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-emerald-600 to-green-700 flex items-center justify-center text-white shadow-md shadow-emerald-700/20 group-hover:scale-105 transition-transform">
-              <Sprout className="w-6 h-6 sm:w-7 sm:h-7" />
+            <div className="h-11 sm:h-14 w-auto rounded-xl overflow-hidden shadow-xs border border-emerald-900/10 group-hover:scale-105 transition-transform bg-[#023c28]">
+              <img
+                src="/images/logo.png"
+                alt="Mama Ada Farm & Foods Logo"
+                className="h-full w-auto object-contain p-0.5"
+              />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-lg sm:text-xl font-bold tracking-tight text-stone-900 group-hover:text-emerald-700 transition-colors">
+                <span className="text-lg sm:text-xl font-extrabold tracking-tight text-stone-900 group-hover:text-emerald-800 transition-colors">
                   Mama Ada Farm
                 </span>
-                <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-100 text-emerald-800">
-                  Organic Living
+                <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300">
+                  Farm & Foods®
                 </span>
               </div>
               <p className="text-xs text-stone-500 hidden sm:block">
-                Crop Planting Calendars • Farm Visits • Scheduled Produce
+                Crop Planting Calendars • Guided Farm Visits • Fresh Deliveries
               </p>
             </div>
           </div>
@@ -46,40 +50,40 @@ export const Navbar: React.FC<NavbarProps> = ({
           <nav className="flex items-center gap-1 sm:gap-2">
             <button
               onClick={() => setActiveTab('crops')}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                 activeTab === 'crops'
-                  ? 'bg-emerald-600 text-white shadow-sm'
+                  ? 'bg-emerald-800 text-white shadow-xs'
                   : 'text-stone-600 hover:text-stone-900 hover:bg-stone-100'
               }`}
             >
-              <Calendar className="w-4 h-4" />
+              <Calendar className="w-4 h-4 text-amber-400" />
               <span>Crops Calendar</span>
             </button>
 
             <button
               onClick={() => setActiveTab('booking')}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                 activeTab === 'booking'
-                  ? 'bg-emerald-600 text-white shadow-sm'
+                  ? 'bg-emerald-800 text-white shadow-xs'
                   : 'text-stone-600 hover:text-stone-900 hover:bg-stone-100'
               }`}
             >
-              <Clock className="w-4 h-4" />
+              <Clock className="w-4 h-4 text-amber-400" />
               <span>Book Visit</span>
             </button>
 
             <button
               onClick={() => setActiveTab('delivery')}
-              className={`relative flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all ${
+              className={`relative flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                 activeTab === 'delivery'
-                  ? 'bg-emerald-600 text-white shadow-sm'
+                  ? 'bg-emerald-800 text-white shadow-xs'
                   : 'text-stone-600 hover:text-stone-900 hover:bg-stone-100'
               }`}
             >
-              <Truck className="w-4 h-4" />
+              <Truck className="w-4 h-4 text-amber-400" />
               <span>Schedule Deliveries</span>
               {deliveryBasketCount > 0 && (
-                <span className="ml-1 px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-amber-500 text-white">
+                <span className="ml-1 px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-amber-500 text-stone-950">
                   {deliveryBasketCount}
                 </span>
               )}
@@ -87,16 +91,16 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <button
               onClick={() => setActiveTab('activity')}
-              className={`relative flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all ${
+              className={`relative flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                 activeTab === 'activity'
-                  ? 'bg-emerald-600 text-white shadow-sm'
+                  ? 'bg-emerald-800 text-white shadow-xs'
                   : 'text-stone-600 hover:text-stone-900 hover:bg-stone-100'
               }`}
             >
-              <UserCheck className="w-4 h-4" />
+              <UserCheck className="w-4 h-4 text-amber-400" />
               <span className="hidden md:inline">My Activity</span>
               {activityCount > 0 && (
-                <span className="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-emerald-700 text-white">
+                <span className="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-emerald-600 text-white">
                   {activityCount}
                 </span>
               )}
@@ -105,9 +109,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => setActiveTab('admin')}
               title="Farm Manager Console"
-              className={`p-2 rounded-lg text-xs font-medium transition-all ${
+              className={`p-2 rounded-xl text-xs font-medium transition-all ${
                 activeTab === 'admin'
-                  ? 'bg-stone-800 text-white'
+                  ? 'bg-stone-900 text-white'
                   : 'text-stone-400 hover:text-stone-800 hover:bg-stone-100'
               }`}
             >
@@ -120,4 +124,3 @@ export const Navbar: React.FC<NavbarProps> = ({
     </header>
   );
 };
-
